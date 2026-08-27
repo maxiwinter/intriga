@@ -4,6 +4,8 @@ type: software
 authors:
   - family-names: Winter
     given-names: Maximiliano
-version: protocolo-v1.1
-date-released: 2026-08-26
-notes: "Marco y protocolo desarrollados con asistencia de sistemas de IA (crítica cruzada) bajo supervisión del autor. Completar licencia antes de publicar."
+version: fase-ia-v1.1
+date-released: 2026-08-27
+license: CC-BY-4.0
+repository-code: "https://github.com/maxiwinter/intriga"
+notes: "Marco y protocolo desarrollados con asistencia de sistemas de IA (crítica cruzada) bajo supervisión del autor. Documentos bajo CC BY 4.0; código de /src bajo MIT. Snapshot de fin de fase asistida por IA (tag fase-ia-v1.1), previo a revisión experta humana independiente; no hay depósito OSF, de modo que no constituye pre-registro público. Ver DECLARACION.md."

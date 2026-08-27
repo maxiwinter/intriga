@@ -22,6 +22,15 @@ hay depósito OSF, de modo que nada de v1.1 puede citarse como pre-registro púb
 - /docs/preprint — hito 1: borrador del preprint (inglés), PENDIENTES, registro de reproducción
 - /configs, /tests — reservados para §11.1
 
+## Licencia
+- **Documentos** (protocolo, marco conceptual, preprint, informes, `DECLARACION.md`): **CC BY 4.0** — ver `LICENSE`.
+  Se pueden copiar, adaptar y redistribuir, incluso comercialmente, **citando la fuente**.
+- **Código** (`/src`): **MIT** — ver `src/LICENSE`.
+
+La licencia cubre todo el repositorio, incluido el estado etiquetado como `fase-ia-v1.1`.
+Para citar el trabajo, ver `CITATION.cff`. Licenciar no es avalar: ver `DECLARACION.md` §5
+sobre qué no está validado.
+
 ## Reproducir el piloto
     pip install numpy mpmath
     python src/piloto_10_1.py
