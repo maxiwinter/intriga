@@ -8,14 +8,18 @@ estructural exige el mundo por bit de observación. Destinatario académico iden
 McAllister (2003, "los datos empíricos no comprimen") vs. Twardy-Gardner-Dowe (2005, "sí comprimen"),
 nunca zanjada con un instrumento sistemático.
 
-## Estado (al ensamblar este repo)
+## Estado (al 2026-08-27)
 - Marco conceptual: **v5.2** (docx del investigador, en /protocol) — CONGELADO. Cambios → v5.3+, registrados.
 - Protocolo experimental: **v1.1 = v1.0 + Enmiendas 1–6 + definición de L_U(T)/L_U(M₀)** (nomenclatura RATIFICADA;
-  v1.2 reservada para post-congelamiento). Consolidado en /protocol/protocolo-v1-1-consolidado.md — **preparado para
-  congelar, NO congelado**: sin hash, sin tag, sin OSF. El congelamiento es acto del investigador.
+  v1.2 reservada para post-congelamiento). Consolidado en /protocol/protocolo-v1-1-consolidado.md — **CONGELADO
+  2026-08-27** por acto del investigador: PDF en /protocol/protocolo-v1-1-congelado.pdf, sha256 de los cuatro
+  documentos congelados en /HASHES.txt, tag anotado **`fase-ia-v1.1`** (commit 8539670). **Congelar ≠ preregistrar:
+  sigue sin haber depósito OSF, y sin él nada de v1.1 puede citarse como pre-registro público.**
+- Documentos congelados (no se editan; editarlos rompe /HASHES.txt): protocolo-v1-1-consolidado.md,
+  protocolo-v1-1-congelado.pdf, definicion-L-M0.md, DECLARACION.md. Verificar con `sha256sum -c HASHES.txt`.
 - Piloto §10.1 (controles sintéticos): **APROBADO** — informe final en /docs, código en /src, salidas en /results.
 - Siguiente etapa: **§11.1, primera medición empírica** (espectros atómicos primero; nunca CMB primero).
-- Hitos pendientes: preprint metodológico (borrador **v0.6**, un archivo por versión, citas sin verificar) → congelar v1.1 → preregistro OSF → repo público → dataset real (§11.1 espectros: Track A benchmark / Track B blind discovery, NO iniciado).
+- Hitos: congelar v1.1 → **HECHO (2026-08-27, tag `fase-ia-v1.1`)**. Pendientes: preprint metodológico (borrador **v0.6**, un archivo por versión, citas sin verificar) → revisión experta humana independiente (Regla 8) → preregistro OSF → repo público → dataset real (§11.1 espectros: Track A benchmark / Track B blind discovery, NO iniciado).
 
 ## Reglas duras (no negociables)
 1. **v1.1 no se modifica** tras el congelamiento. Problemas en §11.1 = desviación documentada o futura v1.2.
