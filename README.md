@@ -9,8 +9,10 @@ este repositorio y cómo se produjo; CLAUDE.md para el estado del proyecto y las
 /protocol para el protocolo y su congelamiento.
 
 El estado congelado corresponde al tag **`fase-ia-v1.1`** (2026-08-27): fin de la fase de desarrollo
-asistido por IA, previo a revisión experta humana independiente. **Congelar no es preregistrar:** no
-hay depósito OSF, de modo que nada de v1.1 puede citarse como pre-registro público.
+asistido por IA, previo a revisión experta humana independiente. El lazo está cerrado: **el protocolo
+v1.1 está congelado y públicamente preregistrado** en OSF — **https://osf.io/yq9hr** (27-08-2026,
+template Open-Ended, licencia CC BY 4.0), con el PDF congelado y `HASHES.txt` archivados dentro del
+registro. v1.1 ya puede citarse como pre-registro público.
 
 ## Estructura
 - /protocol — protocolo v1.0 (docx) + changelog v1.1 + enmienda-6 + definicion-L-M0 + **protocolo-v1-1-consolidado.md** (CONGELADO 2026-08-27) + **protocolo-v1-1-congelado.pdf**, marco v5.2 (docx)
@@ -57,7 +59,8 @@ conservan como columna histórica; no se reinterpretan.
 
 ## Estado
 Validación interna sobre controles sintéticos; validación experta externa pendiente. Reproducción final registrada en results/reproduccion-final-pre-congelamiento.txt.
-Protocolo v1.1 = v1.0 + Enmiendas 1–6 + definición de L_U(T)/L_U(M₀): **CONGELADO el 2026-08-27** (tag `fase-ia-v1.1`, PDF en /protocol, sha256 en /HASHES.txt). **Sin depósito OSF: no es un pre-registro público.**
+Protocolo v1.1 = v1.0 + Enmiendas 1–6 + definición de L_U(T)/L_U(M₀): **CONGELADO el 2026-08-27** (tag `fase-ia-v1.1`, PDF en /protocol, sha256 en /HASHES.txt).
+Preregistro público OSF: **hecho — https://osf.io/yq9hr** (registrado el 27-08-2026, template Open-Ended, licencia CC BY 4.0; el PDF congelado y `HASHES.txt` están archivados dentro del registro). El congelamiento y el preregistro son ahora un solo hecho verificable: el hash depositado es el de `/HASHES.txt`.
 Revisión experta humana independiente: **pendiente**. Es la primera prueba externa del material, no un trámite posterior.
 Preprint metodológico: borrador v0.6 en /docs/preprint (citas sin verificar).
 Siguiente etapa: revisión experta humana independiente; luego §11.1 — primera medición empírica (espectros atómicos).

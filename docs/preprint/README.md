@@ -17,11 +17,13 @@ Varios de estos archivos dicen, correctamente para su momento, cosas como:
 - *"Neither freezing nor public preregistration has taken place at the time of writing"*
 
 **Eran verdaderas cuando se escribieron y describen ese momento, no el estado vigente.** El
-protocolo v1.1 fue congelado el **2026-08-27**. Esas frases no se corrigieron aquí porque
-corregirlas retroactivamente destruiría precisamente lo que estos documentos preservan.
+protocolo v1.1 fue congelado el **2026-08-27** y preregistrado públicamente ese mismo día en
+OSF — **https://osf.io/yq9hr**. Esas frases no se corrigieron aquí porque corregirlas
+retroactivamente destruiría precisamente lo que estos documentos preservan.
 
-Una parte de ellas sigue siendo cierta hoy, y conviene no confundirla con lo anterior: **no
-hay depósito OSF**, de modo que nada de la v1.1 puede citarse como pre-registro público.
+Ninguna de ellas sigue siendo cierta: tanto el congelamiento como el depósito público están
+consumados, y la v1.1 **puede** citarse hoy como pre-registro público. Léanse como registro
+del recorrido, no como estado.
 
 ## Dónde está el estado vigente
 
@@ -30,6 +32,7 @@ hay depósito OSF**, de modo que nada de la v1.1 puede citarse como pre-registro
 | Estado del proyecto | `/README.md` y `/CLAUDE.md` |
 | Qué es este repositorio y qué no está validado | `/DECLARACION.md` |
 | Snapshot congelado y sus hashes | tag `fase-ia-v1.1`, `/HASHES.txt` |
+| Preregistro público | OSF https://osf.io/yq9hr (2026-08-27) |
 | Protocolo congelado | `/protocol/protocolo-v1-1-consolidado.md` y su PDF |
 | Anotaciones sobre documentos congelados | `/POST-FREEZE-NOTES.md` |
 

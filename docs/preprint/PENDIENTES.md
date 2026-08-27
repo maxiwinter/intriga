@@ -97,7 +97,7 @@ Detalle en `CHANGELOG-v0-3-to-v0-4.md` y `VALIDATION-REPORT-v0-4.md`.
 8. **Verificar las 33 referencias `[VERIFY]`** contra fuente primaria (sección A de este documento).
 9. **Revisión humana experta** (MDL/AIT + dominio físico) antes del primer resultado empírico publicable.
 10. **Afiliación, ORCID, licencia** del repositorio.
-11. **Congelamiento y depósito OSF** del protocolo consolidado: PDF, SHA-256, tag de Git, depósito. **No hecho: el protocolo dice NOT YET FROZEN.**
+11. ~~**Congelamiento y depósito OSF** del protocolo consolidado: PDF, SHA-256, tag de Git, depósito.~~ — **CERRADA (2026-08-27):** PDF `protocol/protocolo-v1-1-congelado.pdf`, SHA-256 de los cuatro documentos en `/HASHES.txt`, tag anotado `fase-ia-v1.1` (commit `8539670`), y **preregistro público OSF: https://osf.io/yq9hr** (template Open-Ended, licencia CC BY 4.0), con el PDF congelado y `HASHES.txt` archivados dentro del registro. El preprint **ya puede citar el hash y el identificador OSF**.
 12. **Discrepancia de pendiente en Lorenz** sin causa asignada (64.2 promedio de tramos, rango 29–98, ajuste 67.6, contra 76.5 predicho). Se reporta, no se corrige.
 13. **Decidir si `ERRATA-piloto-v1-1.md` se incorpora** al informe del piloto o permanece como archivo adjunto.
 14. **Ejecutar la medición de espectros atómicos** (Tracks A y B). **No iniciada.**
@@ -121,17 +121,19 @@ Detalle en `CHANGELOG-v0-5-to-v0-6.md` y `VALIDATION-REPORT-v0-6.md`.
 - revisión humana experta (MDL/AIT + dominio físico);
 - afiliación, ORCID, licencia;
 - **discrepancia de pendiente de Lorenz** (64.2 promedio de tramos / 67.6 ajuste contra 76.5 predicho), sin causa asignada — **no investigada en esta ronda por instrucción expresa**;
-- congelamiento: PDF, SHA-256, tag de Git, depósito OSF. **No hecho.**
+- ~~congelamiento: PDF, SHA-256, tag de Git, depósito OSF~~ — **CERRADO el 2026-08-27**, incluido el depósito: https://osf.io/yq9hr. Ver punto 11 de la sección C.
 - primera medición empírica (§11.1, Tracks A y B). **No iniciada.**
 
 ## D. Administrativo
 
 - Afiliación del autor; ORCID.
 - Licencia del repositorio (CITATION.cff dice "completar licencia antes de publicar").
-- Congelamiento formal de v1.1: PDF consolidado, hash, tag `protocolo-v1.1-congelado`, preregistro OSF con el mismo hash. El preprint debe citar ese hash una vez exista.
+- ~~Congelamiento formal de v1.1: PDF consolidado, hash, tag, preregistro OSF con el mismo hash.~~ — **HECHO el 2026-08-27.** Tag: `fase-ia-v1.1` (no `protocolo-v1.1-congelado`: el snapshot abarca el fin de la fase asistida por IA). Preregistro: **https://osf.io/yq9hr**. El preprint **debe** citar ahora el hash de `/HASHES.txt` y el identificador OSF en su sección de disponibilidad.
+- **DESBLOQUEADO — el término "preregistered" vuelve al título del preprint.** Quedó retirado en v0.4 (ítem **D8** de `CHANGELOG-v0-3-to-v0-4.md`) por no existir depósito público, con la condición explícita de que podría recuperarse cuando existiera OSF. Esa condición **está cumplida**. En la próxima versión del preprint corresponde: (a) restituir *preregistered* en el título; (b) retirar del cuerpo las fórmulas defensivas *preregistration-ready*, *designed for preregistration*, *to be preregistered* y el párrafo "Neither freezing nor public preregistration has taken place at the time of writing"; (c) reemplazarlos por la cita del depósito — OSF https://osf.io/yq9hr, 2026-08-27, con el hash del PDF congelado; (d) retirar la nota al pie del título que explicaba la ausencia de depósito. **Los preprints v0.1–v0.6 no se editan**: el cambio va en la versión siguiente, con su changelog.
 - Revisión humana experta (MDL/AIT + dominio físico) **antes** del primer resultado empírico, no antes del preprint metodológico; pero el preprint debe declarar que esa revisión es condición del programa.
 - Decisión final del título (auditoría de originalidad vs. título original de la consigna; ver nota al pie del preprint).
 
 ---
 
 *Historia: v1 (2026-08-26) — lista inicial, redactada por el asistente de IA bajo supervisión de Maximiliano Winter.*
+*v2 (2026-08-27) — cierre del lazo de preregistro: congelamiento y depósito OSF (https://osf.io/yq9hr) marcados como cerrados en C, C quater y D; desbloqueado el uso de "preregistered" en el título del preprint. Sin cambios en las citas por verificar ni en las deudas técnicas abiertas.*
