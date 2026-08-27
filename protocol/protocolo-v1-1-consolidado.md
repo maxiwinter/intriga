@@ -3,13 +3,9 @@
 ### Versión 1.1 consolidada = v1.0 + Enmiendas 1–6 + definición de L_U(T)/L_U(M₀)
 
 > ## STATUS
-> ### **Prepared for freezing — NOT YET FROZEN OR PREREGISTERED**
->
-> Este documento consolida el texto de la v1.0 con las Enmiendas 1–6 y la definición formal de L_U(T)/L_U(M₀) en un solo cuerpo legible, para que el investigador pueda revisarlo y decidir. **No está congelado. No tiene hash definitivo. No hay tag de Git. No hay depósito OSF.** Nada de lo que aquí se dice puede citarse como pre-registro público.
+> ### **FROZEN 2026-08-27 — sha256 en /HASHES.txt — snapshot de fase IA, previo a revisión experta independiente**
 >
 > **Documentos fuente, no modificados:** `protocolo-experimental-programa-I-v1-0.docx` (texto maestro), `changelog-v1-0-a-v1-1.md` (Enmiendas 1–5), `enmienda-6.md` (trazabilidad y control de ruido dual), `definicion-L-M0.md` (contabilidad de identificador, especificación y parámetros; incorporada por referencia en §7). Ante cualquier discrepancia de redacción, **los documentos fuente prevalecen** hasta el congelamiento.
->
-> **Acto de congelamiento pendiente (del investigador):** exportar a PDF, `sha256sum`, registrar fecha y hash, `git tag protocolo-v1.1-congelado`, depositar en OSF con el mismo hash. Desde ese momento, nada hallado en §11 modifica esta versión: se registra como desviación documentada o motiva una v1.2 explícita.
 
 ---
 

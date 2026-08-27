@@ -1,0 +1,9 @@
+# HASHES — snapshot de fase IA
+# Fecha: 2026-08-27
+# Tag: fase-ia-v1.1
+# Algoritmo: SHA-256. Verificar desde la raíz del repositorio con:  sha256sum -c HASHES.txt
+#
+08a0f0599dc47065e14ad62f567b67541652ee60bb3e8a20f7a311633d6fbc3b  protocol/protocolo-v1-1-congelado.pdf
+8494f99fcea454e0e8a4bcc0323ca57afebabd5745195be8800d6221bc39eaf1  protocol/protocolo-v1-1-consolidado.md
+dab54418d1e83f98dd7bcfa967fe02c0f3bcfd85556528eae34c0c2bcf5708ff  protocol/definicion-L-M0.md
+5c10ed0d84e0633caf3172c7ce425eaab02de3ddbac0e90e1c797ab245c18ca1  DECLARACION.md
