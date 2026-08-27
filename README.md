@@ -16,10 +16,11 @@ hay depósito OSF, de modo que nada de v1.1 puede citarse como pre-registro púb
 - /protocol — protocolo v1.0 (docx) + changelog v1.1 + enmienda-6 + definicion-L-M0 + **protocolo-v1-1-consolidado.md** (CONGELADO 2026-08-27) + **protocolo-v1-1-congelado.pdf**, marco v5.2 (docx)
 - /HASHES.txt — sha256 de los cuatro documentos congelados; verificar con `sha256sum -c HASHES.txt`
 - DECLARACION.md — qué es este repositorio, quién hizo qué, y qué no está validado
+- POST-FREEZE-NOTES.md — anotaciones sobre documentos congelados (no se editan; se anota aquí)
 - /docs — marco conceptual (v5 md; v5.2 docx en /protocol), reglas y parámetros, informe final del piloto
-- /src — instrumento: piloto_10_1.py (controles sintéticos), verificacion_piso_y_eta.py, lorenz_checkpoints.py (checkpoints a 20k, pendientes), ruido_oos_semilla.py (control negativo reproducible)
-- /results — salidas archivadas de las cuatro corridas
-- /docs/preprint — hito 1: borrador del preprint (inglés), PENDIENTES, registro de reproducción
+- /src — instrumento (7 scripts): piloto_10_1.py y verificacion_piso_y_eta.py (piloto histórico), lorenz_checkpoints.py, ruido_oos_semilla.py, g_metricas_oos.py, contabilidad_completa.py, contabilidad_completa_v2.py (correcciones y contabilidad final). Ver "Reproducir el piloto"
+- /results — salidas archivadas de cada corrida, una por script (Enmienda 6)
+- /docs/preprint — hito 1: borrador del preprint (inglés), PENDIENTES, registro de reproducción. **Artefactos históricos previos al snapshot**: ver docs/preprint/README.md
 - /configs, /tests — reservados para §11.1
 
 ## Licencia
@@ -33,13 +34,29 @@ sobre qué no está validado.
 
 ## Reproducir el piloto
     pip install numpy mpmath
+
+**Piloto histórico §10.1** — la tabla tal como se publicó en su momento. Se conservan sin
+modificar por trazabilidad; su contabilidad es la ingenua (no cobra M₀ en el denominador):
+
     python src/piloto_10_1.py
     python src/verificacion_piso_y_eta.py
-    python src/lorenz_checkpoints.py
-    python src/ruido_oos_semilla.py
+
+**Correcciones y contabilidad final** — posteriores al piloto, cierran la contabilidad bajo
+`protocol/definicion-L-M0.md`. **Ante discrepancia con las cifras del piloto histórico, estas
+prevalecen:**
+
+    python src/lorenz_checkpoints.py        # codificador con checkpoints; supera la columna ρ de verificacion_piso_y_eta
+    python src/ruido_oos_semilla.py         # control negativo reproducible (Enmienda 6)
+    python src/g_metricas_oos.py            # separa g_pred / g_total_bare / g_total_full
+    python src/contabilidad_completa.py     # recomputa con L₀_full = L_U(M₀) + L_U(D_ε|M₀)
+    python src/contabilidad_completa_v2.py  # + identidad exacta g_total − g_pred, verificada por assert
+
+Cada script archiva su salida en `/results` (Enmienda 6: todo número publicado sale de un
+script versionado). Los valores históricos 0.0088 / 1.009 / 1.0088 son **g_total^bare** y se
+conservan como columna histórica; no se reinterpretan.
 
 ## Estado
-Instrumento validado en controles sintéticos; reproducción final registrada en results/reproduccion-final-pre-congelamiento.txt.
+Validación interna sobre controles sintéticos; validación experta externa pendiente. Reproducción final registrada en results/reproduccion-final-pre-congelamiento.txt.
 Protocolo v1.1 = v1.0 + Enmiendas 1–6 + definición de L_U(T)/L_U(M₀): **CONGELADO el 2026-08-27** (tag `fase-ia-v1.1`, PDF en /protocol, sha256 en /HASHES.txt). **Sin depósito OSF: no es un pre-registro público.**
 Revisión experta humana independiente: **pendiente**. Es la primera prueba externa del material, no un trámite posterior.
 Preprint metodológico: borrador v0.6 en /docs/preprint (citas sin verificar).
