@@ -1,0 +1,40 @@
+====================================================================================================
+REPRODUCCION SINTETICA FINAL PRE-CONGELAMIENTO — 2026-08-26
+====================================================================================================
+Entorno: Python 3.12.3, numpy 2.5.2, mpmath 1.4.1 (venv aislado; pip global bloqueado por PEP 668).
+Orden de ejecucion: piloto_10_1 -> lorenz_checkpoints -> ruido_oos_semilla -> g_metricas_oos -> contabilidad_completa
+Ningun dataset empirico fue abierto. Ningun script ni salida previos fueron modificados.
+
+--- piloto_10_1.py  ->  results/piloto-10-1-salida.txt
+    1 linea(s) distinta(s), 0 linea(s) de diferencia de longitud:
+      L11 archivado : OOS: {'R110': (110, 0.0, 0.008767361111111111), 'R30': (30, 0.0, 0.008767361111111111), 'ruido': (9, 0.5006727430555555,
+      L11 reproducido: OOS: {'R110': (110, 0.0, 0.008767361111111111), 'R30': (30, 0.0, 0.008767361111111111), 'ruido': (208, 0.499153645833333
+    JUSTIFICADA -> fila 'ruido' de OOS: fuente os.urandom SIN semilla (Enmienda 6b)
+
+--- lorenz_checkpoints.py  ->  results/lorenz-checkpoints-salida.txt
+    1 linea(s) distinta(s), 0 linea(s) de diferencia de longitud:
+      L24 archivado : referencia extendida (160 bits) lista: 1.3 s  [tiempo, no medición]
+      L24 reproducido: referencia extendida (160 bits) lista: 2.1 s  [tiempo, no medición]
+    JUSTIFICADA -> tiempo de computo: no es una medicion
+
+--- ruido_oos_semilla.py  ->  results/ruido-oos-semilla-salida.txt
+    IDENTICO (byte a byte en todas las lineas)
+
+--- g_metricas_oos.py  ->  results/g-metricas-oos-salida.txt
+    IDENTICO (byte a byte en todas las lineas)
+
+--- contabilidad_completa.py  ->  results/contabilidad-completa-salida.txt
+    IDENTICO (byte a byte en todas las lineas)
+
+====================================================================================================
+INVARIANTES DEL CONTROL NEGATIVO SIN SEMILLA (se verifican, no la identidad de las cifras)
+====================================================================================================
+  corrida actual: regla espuria=208 (NO se cita), p_error=0.4992, g_total^bare=1.0088
+  invariante p_error ~ 0.5 : True
+  invariante g_total^bare > 1 : True
+  contabilidad: r_generic=1.0005, rho_bare=1.0000, rho_full=1.0000, gana M0
+  invariante rho_full = 1 exacto (gana M0) : True
+
+====================================================================================================
+VEREDICTO: reproduccion CORRECTA — toda cifra con semilla es identica; lo unico que difiere es el control declaradamente irreproducible.
+====================================================================================================

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "La intriga — Programa I: metrología de la comprimibilidad de las regularidades físicas"
+type: software
+authors:
+  - family-names: Winter
+    given-names: Maximiliano
+version: protocolo-v1.1
+date-released: 2026-08-26
+notes: "Marco y protocolo desarrollados con asistencia de sistemas de IA (crítica cruzada) bajo supervisión del autor. Completar licencia antes de publicar."

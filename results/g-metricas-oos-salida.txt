@@ -1,0 +1,16 @@
+L(T_train) = 808 bits (fuente comprimida 800 + regla 8)
+L(D_test|M0) = 92160 bits (360 filas x 256 celdas, codigo literal)
+L_U(M0) = NO DEFINIDO en el protocolo -> g_total_full NO se calcula (deuda declarada)
+
+dataset                           p_error     L_test     g_pred   g_total_bare  g_total_full
+--------------------------------------------------------------------------------------------
+Regla 110                          0.0000        0.0     0.0000         0.0088     PENDIENTE
+Regla 30                           0.0000        0.0     0.0000         0.0088     PENDIENTE
+Ruido PRNG (PCG64 semilla=2026)    0.5001    92160.0     1.0000         1.0088     PENDIENTE
+
+Nota 1: g_total_bare es la cantidad que imprime piloto_10_1.py (columna 3 de su OOS).
+        Reproduce los valores historicos 0.0088 (R110/R30) y 1.0088 (ruido con semilla).
+Nota 2: el control historico con os.urandom no tiene semilla; sus invariantes reportables
+        son p_error ~ 0.5 y g_total_bare > 1 (Enmienda 6b). No se compara cifra a cifra.
+Nota 3: g_pred y g_total_bare tienen denominadores distintos de g_total_full; no se
+        asume ninguna desigualdad entre ellos.

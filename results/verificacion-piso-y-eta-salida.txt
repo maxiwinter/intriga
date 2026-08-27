@@ -1,0 +1,20 @@
+ref extendida lista 0.7 s
+prec.extendida p=40: match=2699  (sin saturar)
+prec.extendida p=52: match=3052  (sin saturar)
+prec.extendida p=64: match=4228  (sin saturar)
+prec.extendida p=76: match=5011  (sin saturar)
+
+Lorenz b=4: horizonte=3194  L0=60000  C=1756  rho=0.0293
+Lorenz b=6: horizonte=2655  L0=90000  C=1756  rho=0.0195
+Lorenz b=8: horizonte=2655  L0=120000  C=1756  rho=0.0146
+Lorenz b=10: horizonte=2655  L0=150000  C=1756  rho=0.0117
+Lorenz b=12: horizonte=2458  L0=180000  C=1912  rho=0.0106
+
+eta_eps (dif. finitas entre resoluciones consecutivas, Lorenz):
+  b 4->6: dC=0  dL0=30000  eta=0.0000
+  b 6->8: dC=0  dL0=30000  eta=0.0000
+  b 8->10: dC=0  dL0=30000  eta=0.0000
+  b 10->12: dC=156  dL0=30000  eta=0.0052
+
+ruido continuo b=8: r_generic=1.0007 -> rho_MDL=1 (gana M0); eta=1
+ruido continuo b=16: r_generic=1.0005 -> rho_MDL=1 (gana M0); eta=1

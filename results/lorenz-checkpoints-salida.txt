@@ -1,0 +1,38 @@
+codigo fuente comprimido: 1096 bits; parametros: 192 bits; checkpoint: 156 bits (p=52/coord)
+horizonte float64 (p=52, 8 bits/coord): 2655 pasos
+
+codificador con checkpoints (n, L0, k=ceil(n/h), C, rho):
+  n=  1000  L0= 24000  k=1  C=1444  rho=0.0602
+  n=  2500  L0= 60000  k=1  C=1444  rho=0.0241
+  n=  5000  L0=120000  k=2  C=1600  rho=0.0133
+  n= 10000  L0=240000  k=4  C=1912  rho=0.0080
+  n= 20000  L0=480000  k=8  C=2536  rho=0.0053
+nota de trazabilidad: verificacion_piso_y_eta.py cablea code_bits=1252; el gzip del fuente declarado da 1096. Con 1096 y k=ceil(n/h) se reproduce el 0.0053 del informe; con 1252 daria 0.0056.
+
+barrido de resolucion, n=5000, code_bits=1096 (b, horizonte, L0, k, C, rho):
+  b= 4  horizonte=3194  L0=60000  k=2  C=1600  rho=0.0267
+  b= 6  horizonte=2655  L0=90000  k=2  C=1600  rho=0.0178
+  b= 8  horizonte=2655  L0=120000  k=2  C=1600  rho=0.0133
+  b=10  horizonte=2655  L0=150000  k=2  C=1600  rho=0.0107
+  b=12  horizonte=2458  L0=180000  k=3  C=1756  rho=0.0098
+eta_eps (dif. finitas entre resoluciones consecutivas):
+  b 4->6: dC=0  dL0=30000  eta=0.0000
+  b 6->8: dC=0  dL0=30000  eta=0.0000
+  b 8->10: dC=0  dL0=30000  eta=0.0000
+  b 10->12: dC=156  dL0=30000  eta=0.0052
+
+referencia extendida (160 bits) lista: 1.3 s  [tiempo, no medición]
+  prec.extendida p=40: match=2699  (sin saturar)
+  prec.extendida p=52: match=3052  (sin saturar)
+  prec.extendida p=64: match=4228  (sin saturar)
+  prec.extendida p=76: match=5011  (sin saturar)
+
+pendiente (pasos por bit de condicion inicial, 1 bit = +1 bit/coord):
+  ajuste lineal global p=40..76: 67.6
+  extremos (p=40..76):            64.2
+  tramo p=40->52: 29.4
+  tramo p=52->64: 98.0
+  tramo p=64->76: 65.2
+  promedio de tramos: 64.2   rango: 29.4-98.0
+  prediccion pre-registrada ln2/(lambda*dt), lambda=0.906: 76.5
+  discrepancia ajuste global vs prediccion: -11.6 %  (SIN CAUSA ASIGNADA; se reporta, no se corrige)

@@ -1,0 +1,3 @@
+ruido PRNG (PCG64 semilla=2026) como automata, OOS 40 train / 360 test:
+  p_error_test = 0.5001   g = 1.0088   invariantes: p_error~0.5 -> True, g>1 -> True
+  (identificador de la regla espuria: dependiente de corrida; no se reporta como resultado)

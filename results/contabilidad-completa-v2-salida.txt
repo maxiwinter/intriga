@@ -1,0 +1,97 @@
+========================================================================================================
+CONTABILIDAD COMPLETA — definicion protocol/definicion-L-M0.md
+========================================================================================================
+Familia de primer nivel: ['M0 literal', 'zlib', 'bz2', 'lzma', 'generativo']
+k = 5  ->  L_id = ceil(log2 5) = 3 bits para TODO miembro, M0 incluido
+spec = 0 para primitivas declaradas de U_ref: ['M0 literal', 'bz2', 'lzma', 'zlib']
+L_U(M0) = L_id + spec + theta = 3 + 0 + 0 = 3 bits   (M0 NO es gratis)
+
+--- Tabla principal: rho_bare (historico) vs rho_full (baseline completo) ---
+dominio                            L0  L0_full  r_generic   rho_bare   rho_full       delta         gana
+--------------------------------------------------------------------------------------------------------
+Lorenz (20k, checkpoints)      480000   480003     0.5307     0.0053     0.0053   +6.22e-06   generativo
+Regla 110                      102400   102403     0.5019     0.0107     0.0107   +2.90e-05   generativo
+Regla 30                       102400   102403     1.0009     0.0107     0.0107   +2.90e-05   generativo
+PRNG (PCG64)                   262144   262147     1.0005     0.0018     0.0018   +1.14e-05   generativo
+Ruido (urandom)                262144   262147     1.0005     1.0000     1.0000   +0.00e+00           M0
+Surrogate R110                 102400   102403     0.9945     0.9945     0.9945   +1.63e-07         zlib
+Surrogate Lorenz               480000   480003     0.9261     0.9261     0.9261   +4.62e-07         zlib
+
+--- Verificacion rho_full <= 1 ---
+  Lorenz (20k, checkpoints)    rho_full = 0.005290  OK
+  Regla 110                    rho_full = 0.010732  OK
+  Regla 30                     rho_full = 0.010732  OK
+  PRNG (PCG64)                 rho_full = 0.001812  OK
+  Ruido (urandom)              rho_full = 1.000000  OK
+  Surrogate R110               rho_full = 0.994453  OK
+  Surrogate Lorenz             rho_full = 0.926134  OK
+  => rho_full <= 1 en TODAS las filas: True
+
+--- Prediccion pre-declarada: |delta| bajo el redondeo de 4 decimales (5e-5) ---
+  Lorenz (20k, checkpoints)    |delta| = 6.217e-06  -> confirmada
+  Regla 110                    |delta| = 2.898e-05  -> confirmada
+  Regla 30                     |delta| = 2.898e-05  -> confirmada
+  PRNG (PCG64)                 |delta| = 1.142e-05  -> confirmada
+  Ruido (urandom)              |delta| = 0.000e+00  -> confirmada
+  Surrogate R110               |delta| = 1.625e-07  -> confirmada
+  Surrogate Lorenz             |delta| = 4.617e-07  -> confirmada
+  => peor caso: Regla 110, |delta| = 2.898e-05
+  => rho a 4 decimales cambia en alguna fila: False
+
+--- Descomposicion Nivel A / Nivel B de la descripcion de Lorenz (impresa, no derivada) ---
+  h(p=52, eps=8 bits) medido            = 2655 pasos
+  k = ceil(n/h) = ceil(20000/2655)       = 8 checkpoints
+  identificador L_id                     = 3 bits
+  NIVEL A (regla: spec 1096 + theta 192) = 1288 bits   [fijo, no crece con n]
+  NIVEL B (trayectoria: 156 x 8)        = 1248 bits   [crece con el horizonte]
+  TOTAL C = L_id + Nivel A + Nivel B      = 2539 bits
+  Nivel A como fraccion del total         = 0.5073
+  escalamiento por n (n, k, NivelA, NivelB, C, rho_full):
+    n=  1000  k=1  A=1288  B=  156  C= 1447  rho_full=0.0603
+    n=  2500  k=1  A=1288  B=  156  C= 1447  rho_full=0.0241
+    n=  5000  k=2  A=1288  B=  312  C= 1603  rho_full=0.0134
+    n= 10000  k=4  A=1288  B=  624  C= 1915  rho_full=0.0080
+    n= 20000  k=8  A=1288  B= 1248  C= 2539  rho_full=0.0053
+
+--- Generalizacion fuera de muestra: g_pred, g_total^bare (historico), g_total (simetrico) ---
+  L_U(T_train) = L_id 3 + spec 800 + regla 8 = 811 bits
+  L_U(M0) = 3 bits ;  L_U(D_test|M0) = 92160 bits ;  denominador simetrico = 92163
+dataset                        p_error     L_test    g_pred   g_total^bare    g_total  g_tot-g_pred
+--------------------------------------------------------------------------------------------------------
+Regla 110                       0.0000        0.0    0.0000         0.0088     0.0088       +0.0088
+Regla 30                        0.0000        0.0    0.0000         0.0088     0.0088       +0.0088
+Ruido PRNG (semilla 2026)       0.5001    92160.0    1.0000         1.0088     1.0088       +0.0088
+
+--- Identidad exacta de g_total - g_pred (sin redondeo interno) ---
+  A = L_U(T_train) = 811 bits ; B = L_U(M0) = 3 bits ; H = L_U(D_test|M0) = 92160 bits
+  g_total - g_pred = (A - B*g_pred)/(B + H) = (A*H - B*G)/(H*(B + H))
+  ATENCION: A/(B+H) = 0.0087996 solo vale cuando g_pred = 0.
+
+dataset                               G       g_pred      delta_g     formula1     formula2      |dif|
+--------------------------------------------------------------------------------------------------------
+Regla 110                           0.0  0.000000000  0.008799627  0.008799627  0.008799627   0.00e+00
+Regla 30                            0.0  0.000000000  0.008799627  0.008799627  0.008799627   0.00e+00
+Ruido PRNG (semilla 2026)       92160.0  0.999999978  0.008767076  0.008767076  0.008767076   1.21e-16
+  => identidad verificada por assert (tol 1e-12) en todos los casos: True
+
+  Lectura fila por fila:
+    Regla 110                    g_pred = 0 EXACTO -> delta = A/(B+H) = 811/92163 = 0.0087996
+    Regla 30                     g_pred = 0 EXACTO -> delta = A/(B+H) = 811/92163 = 0.0087996
+    Ruido PRNG (semilla 2026)    g_pred = 0.999999978 -> delta = (A - B*g_pred)/(B+H) = 808.000000/92163 = 0.0087671
+                                   (con g_pred = 1 exacto daria (A-B)/(B+H) = 808/92163 = 0.0087671)
+
+  A cuatro decimales, TODAS redondean a 0.0088; la tabla publicada NO cambia.
+    R110/R30: 0.0087996 -> 0.0088
+    ruido   : 0.0087671 -> 0.0088
+
+--- Trazabilidad: el antiguo cargo log2(3) de seleccion de compresor ---
+  total historico Lorenz (sin identificador) = 1096 + 192 + 1248 = 2536 bits
+  total full  Lorenz (con identificador)     = 3 + 1096 + 192 + 1248 = 2539 bits
+  diferencia = 3 bits (el identificador uniforme de primer nivel, k=5)
+  log2(3) = 1.5850 bits: cargo DECLARADO en informes anteriores pero NO incluido
+  en el total historico trazado (2536 no contiene ningun sumando de seleccion).
+
+Nota: g_total^bare NO es g_total. La primera divide por L(D_test|M0); la segunda por
+      L_U(M0)+L(D_test|M0). Los valores historicos del piloto son g_total^bare.
+Nota: el control os.urandom es irreproducible por diseno (Enmienda 6b); en la tabla
+      principal se reporta por invariantes (r_generic ~ 1, gana M0, rho_full = 1).
